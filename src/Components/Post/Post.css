@@ -1,0 +1,47 @@
+.post {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    max-width: 500px; 
+    font-family: 'Arial', sans-serif;
+    transition: transform 0.3s ease;
+    color: #7d94ad;
+    word-wrap: break-word; 
+    word-break: break-word; 
+}
+
+.post-title {
+    color: #7d94ad !important;
+}
+
+.edit-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-right: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.comments-list {
+    margin-top: 20px;
+    padding-left: 0;
+}
+
+.comment-item {
+    list-style: none;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comment-item p {
+    margin: 5px 0;
+}
