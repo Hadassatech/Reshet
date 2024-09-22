@@ -8,6 +8,10 @@ This project is a React application that handles user authentication and allows 
 - Create and update posts with a responsive design.
 - Fetch and display comments for each post.
 - Logout functionality.
+# API Endpoints
+- User Authentication: https://jsonplaceholder.typicode.com/users
+- Posts: https://jsonplaceholder.typicode.com/posts
+- Comments: https://jsonplaceholder.typicode.com/comments
 # Technologies Used
 - React
 - Zustand (for state management)
