@@ -25,7 +25,7 @@ const Login = () => {
         const fetchUsers = async () => {
             setLoading(true);
             try {
-                const response = await fetch('https://jsonplaceholder.typicode.com/users');
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/users`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }

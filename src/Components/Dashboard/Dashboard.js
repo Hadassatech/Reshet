@@ -22,7 +22,7 @@ const Dashboard = () => {
         if (user && !hasFetched) {
             const fetchPosts = async () => {
                 try {
-                    const response = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${user?.id}`);
+                    const response = await fetch(`${process.env.REACT_APP_API_URL}/posts?userId=${user?.id}`);
                     const data = await response.json();
                     setPosts(data); // Set posts in Zustand store
                     setHasFetched(true);
@@ -44,7 +44,7 @@ const Dashboard = () => {
 
     const createPost = async (post) => {
         try {
-            const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/posts?userId=${user?.id}`, {
                 method: 'POST',
                 body: JSON.stringify(post),
                 headers: {

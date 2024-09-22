@@ -15,7 +15,7 @@ const Post = ({ post }) => {
     useEffect(() => {
         const fetchComments = async () => {
             try {
-                const response = await fetch(`https://jsonplaceholder.typicode.com/comments?postId=${post.id}`);
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/comments?postId=${post.id}`);
                 const data = await response.json();
                 setComments({ ...comments, [post.id]: data });
             } catch (error) {
@@ -44,7 +44,7 @@ const Post = ({ post }) => {
 
         // Make PUT request to update the post
         try {
-            const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${post.id}`, {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/posts/${post.id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
