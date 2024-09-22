@@ -6,16 +6,7 @@ export const useStore = create(
     (set) => ({
       user: null, 
       posts: [],  
-      comments: {}, 
       setUser: (user) => set({ user }),
-      setPosts: (posts) => set({ posts }),
-      setComments: (postId, comments) => set((state) => ({
-        comments: {
-          ...state.comments,
-          [postId]: comments,
-        },
-      })),
-
 
       // Actions for user authentication
       loginUser: (user) => set({ user }),
@@ -30,8 +21,6 @@ export const useStore = create(
         ),
       })),
 
-      // Actions for comments (optional, implement as needed)
-      addComment: (newComment) => set((state) => ({ comments: [...state.comments, newComment] })),
     }),
     {
       name: 'app-storage', // key for localStorage

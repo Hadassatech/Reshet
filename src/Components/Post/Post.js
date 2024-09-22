@@ -7,27 +7,28 @@ import { useStore } from '../../Store';
 
 const Post = ({ post }) => {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
-    const comments = useStore((state) => state.comments[post.id] || []);
-    const setComments = useStore((state) => state.setComments);
     const updatePost = useStore((state) => state.updatePost);
+    const [comments, setComments] = useState({});
 
+    console.log("comments", comments)
     // Fetch comments 
     useEffect(() => {
         const fetchComments = async () => {
             try {
                 const response = await fetch(`https://jsonplaceholder.typicode.com/comments?postId=${post.id}`);
                 const data = await response.json();
-                setComments(post.id, data); 
+                setComments({ ...comments, [post.id]: data });
             } catch (error) {
                 console.error("Error fetching comments:", error);
             }
         };
 
         // Fetch comments only if not already in Zustand
-        if (comments.length === 0) {
+        if (!comments[post.id]) {
             fetchComments();
         }
-    }, [post.id, comments.length, setComments]);
+        // }
+    }, []);
 
     const handleEdit = () => {
         setIsPopupOpen(true);
@@ -74,10 +75,10 @@ const Post = ({ post }) => {
             </Popup>
             <h3>{comments?.length > 0 && 'Comments:'}</h3>
             <ul className="comments-list">
-                {comments?.length === 0 ? (
+                {comments[post.id]?.length === 0 ? (
                     <p>No comments yet.</p>
                 ) : (
-                    comments?.map((comment) => (
+                    comments[post.id]?.map((comment) => (
                         <li key={comment.id} className="comment-item">
                             <p><strong>Name: {comment.name}</strong></p>
                             <p>Content: {comment.body}</p>
