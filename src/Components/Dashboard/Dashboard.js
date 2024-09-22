@@ -4,15 +4,15 @@ import Post from '../Post/Post';
 import PostForm from '../PostForm/PostForm';
 import './Dashboard.css';
 import Popup from 'reactjs-popup';
-import { useStore } from '../../Store'; 
+import { useStore } from '../../Store';
 
 const Dashboard = () => {
     const navigate = useNavigate();
-    const user = useStore((state) => state.user); 
+    const user = useStore((state) => state.user);
     const posts = useStore((state) => state.posts);
     const setPosts = useStore((state) => state.setPosts);
-    const addPost = useStore((state) => state.addPost); 
-    const updatePost = useStore((state) => state.updatePost); 
+    const addPost = useStore((state) => state.addPost);
+    const updatePost = useStore((state) => state.updatePost);
 
     const [loading, setLoading] = useState(true);
     const [hasFetched, setHasFetched] = useState(false);
@@ -42,26 +42,26 @@ const Dashboard = () => {
         }
     }, [navigate, user]);
 
- const createPost = async (post) => {
-    try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
-            method: 'POST',
-            body: JSON.stringify(post),
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
-        const newPost = await response.json();
-        newPost.userId = user.id; // Add userId to the new post
-        
-        // Update Zustand store with the new post
-        addPost(newPost); // This adds the post locally
-        setPosts([...posts, newPost]); // Optionally, update the posts directly for clarity
-        setIsPopupOpen(false);
-    } catch (error) {
-        console.error("Error creating post:", error);
-    }
-};
+    const createPost = async (post) => {
+        try {
+            const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+                method: 'POST',
+                body: JSON.stringify(post),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            const newPost = await response.json();
+            newPost.userId = user.id; // Add userId to the new post
+
+            // Update Zustand store with the new post
+            addPost(newPost); // This adds the post locally
+            setPosts([...posts, newPost]); // Optionally, update the posts directly for clarity
+            setIsPopupOpen(false);
+        } catch (error) {
+            console.error("Error creating post:", error);
+        }
+    };
 
     const handleCancelEdit = () => {
         setIsPopupOpen(false);
@@ -83,8 +83,13 @@ const Dashboard = () => {
             <div className="center-button">
                 <button className="create-post-btn" onClick={() => setIsPopupOpen(true)}>Create New Post</button>
             </div>
-            <Popup open={isPopupOpen} onClose={() => setIsPopupOpen(false)} position="right center">
-                <div className="popup-content">
+            <Popup
+                open={isPopupOpen}
+                onClose={() => setIsPopupOpen(false)}
+                position="right center"
+                className="popup-content"
+            >
+                <div className="popup-inner">
                     <h1 className='user-posts'>Create new post</h1>
                     <PostForm onSubmit={createPost} onCancel={handleCancelEdit} />
                 </div>

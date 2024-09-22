@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <Router>
-      <div style={{ backgroundColor: '#56221755', minHeight: '100vh' }}>
+      <div>
         <Navigation />
         <Routes>
           <Route path="/" element={<Login />} />

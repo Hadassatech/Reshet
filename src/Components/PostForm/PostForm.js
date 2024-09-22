@@ -20,7 +20,7 @@ const PostForm = ({ post, onSubmit, onCancel }) => {
     return (
         <form onSubmit={handleSubmit} className="post-form-container">
             <div className="form-group-title">
-                <label className="form-label-title">כותרת:</label>
+                <label className="form-label-title">Title:</label>
                 <input
                     type="text"
                     value={title}
@@ -30,7 +30,7 @@ const PostForm = ({ post, onSubmit, onCancel }) => {
                 />
             </div>
             <div className="form-group-body">
-                <label className="form-label-body">גוף:</label>
+                <label className="form-label-body">Body:</label>
                 <textarea
                     value={body}
                     onChange={(e) => setBody(e.target.value)}
@@ -39,8 +39,8 @@ const PostForm = ({ post, onSubmit, onCancel }) => {
                 />
             </div>
             <div className="form-actions">
-                <button type="submit" className="btn-submit">שמור</button>
-                <button type="button" onClick={onCancel} className="btn-cancel">ביטול</button>
+                <button type="submit" className="btn-submit">Save</button>
+                <button type="button" onClick={onCancel} className="btn-cancel">Cancel</button>
             </div>
         </form>
     );

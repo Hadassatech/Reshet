@@ -33,7 +33,7 @@
 }
 
 /* Responsiveness */
-@media (max-width: 480px) {
+@media (max-width: 600px) {
     .user-profile-container {
         padding: 20px;
         width: 90%;

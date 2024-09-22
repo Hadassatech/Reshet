@@ -1,11 +1,21 @@
-.logout-btn {
-    background-color: #007bff;
-    color: white;
+.custom-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-toggler {
     border: none;
-    padding: 10px 15px;
-    margin-right: 10px;
-    border-radius: 5px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    outline: none;
+}
+
+@media (max-width: 600px) {
+    .logout-btn {
+        margin-left: 10px;
+        padding: 5px 10px;
+    }
+
+    .navbar-nav {
+        flex-direction: row;
+    }
 }

@@ -32,8 +32,13 @@
     box-sizing: border-box;
 }
 
+.input-title {
+    max-width: 500px; 
+}
+
 .textarea-body {
     min-height: 100px;
+    max-width: 500px; 
 }
 
 .form-actions {
@@ -42,24 +47,24 @@
     margin-top: 15px;
 }
 
-.btn-submit {
-    padding: 10px 15px;
-    background-color: #4CAF50;
-    border: none;
-    color: white;
+.btn-submit, .btn-cancel {
+    padding: 10px;
+    flex: 1; 
+    margin-right: 5px; 
     border-radius: 5px;
-    cursor: pointer;
     font-size: 14px;
 }
 
+.btn-submit {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+}
+
 .btn-cancel {
-    padding: 10px 15px;
     background-color: #f44336;
     border: none;
     color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
 }
 
 .btn-submit:hover,
@@ -67,9 +72,41 @@
     opacity: 0.9;
 }
 
-@media (max-width: 480px) {
+/* Responsive Styles */
+@media (max-width: 900px) {
+    .post-form-container {
+        padding: 15px;
+        max-width: 90%;
+    }
+
+    .form-label-title, .form-label-body {
+        font-size: 14px;
+    }
+
+    .input-title, 
+    .textarea-body {
+        font-size: 13px;
+    }
+
+    .btn-submit, .btn-cancel {
+        font-size: 13px; 
+        margin-right: 3px; 
+    }
+}
+
+@media (max-width: 600px) {
     .post-form-container {
         padding: 10px;
-        width: 90%;
+        width: 95%; 
+    }
+
+    .btn-actions {
+        flex-direction: column; 
+    }
+
+    .form-actions {
+        flex-direction: column; 
+        gap: 10px; 
+        margin-top: 15px;
     }
 }
