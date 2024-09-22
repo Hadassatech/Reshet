@@ -37,5 +37,5 @@ npm start
 
 # Usage
 You can log in using a username or email from the JSONPlaceholder user data.
-After logging in, you will be redirected to the Dashboard where you can view your profile and posts.
+After logging in, you will be redirected to the Dashboard where you can view user profile and posts.
 You can create new posts, update existing ones, and view comments for each post.
