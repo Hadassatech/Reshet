@@ -10,7 +10,6 @@ const Post = ({ post }) => {
     const updatePost = useStore((state) => state.updatePost);
     const [comments, setComments] = useState({});
 
-    console.log("comments", comments)
     // Fetch comments 
     useEffect(() => {
         const fetchComments = async () => {
