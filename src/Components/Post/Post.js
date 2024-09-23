@@ -26,7 +26,6 @@ const Post = ({ post }) => {
         if (!comments[post.id]) {
             fetchComments();
         }
-        // }
     }, []);
 
     const handleEdit = () => {

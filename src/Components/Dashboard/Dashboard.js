@@ -24,7 +24,7 @@ const Dashboard = () => {
                 try {
                     const response = await fetch(`${process.env.REACT_APP_API_URL}/posts?userId=${user?.id}`);
                     const data = await response.json();
-                    setPosts(data); // Set posts in Zustand store
+                    setPosts(data);
                     setHasFetched(true);
                 } catch (error) {
                     console.error("Error fetching posts:", error);
@@ -52,11 +52,11 @@ const Dashboard = () => {
                 },
             });
             const newPost = await response.json();
-            newPost.userId = user.id; // Add userId to the new post
+            newPost.userId = user.id; 
 
             // Update Zustand store with the new post
-            addPost(newPost); // This adds the post locally
-            setPosts([...posts, newPost]); // Optionally, update the posts directly for clarity
+            addPost(newPost); 
+            setPosts([...posts, newPost]);
             setIsPopupOpen(false);
         } catch (error) {
             console.error("Error creating post:", error);
