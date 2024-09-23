@@ -35,7 +35,11 @@ npm install
 npm start
 5. Open your browser and go to http://localhost:3000 to view the app.
 
-# Usage
-You can log in using a username or email from the JSONPlaceholder user data.
-After logging in, you will be redirected to the Dashboard where you can view user profile and posts.
-You can create new posts, update existing ones, and view comments for each post.
+# Login Credentials
+You can log in using a username or email from the JSONPlaceholder user data. After logging in, you’ll be redirected to the Dashboard, where you can view user profiles and posts. Additionally, you can create new posts, update existing ones, and view comments on each post.
+
+To access the app, please use the following example login credentials:
+
+Username: e.g., Bret
+Password: e.g., 1234 (Note: you can use any password to log in.)
+
